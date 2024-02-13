@@ -7,5 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class Message {
     String message;
-    String user;
+    int user;
 }
