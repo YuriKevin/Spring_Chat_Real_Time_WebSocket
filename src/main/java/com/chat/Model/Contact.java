@@ -28,3 +28,4 @@ public class Contact {
 	    User userAdded;
     	String nickname;
 }
+
