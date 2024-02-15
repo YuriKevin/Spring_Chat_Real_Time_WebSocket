@@ -14,3 +14,4 @@ public class UserPostRequestBody {
     String photo;
     String status;
 }
+

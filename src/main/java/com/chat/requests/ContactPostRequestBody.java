@@ -10,3 +10,4 @@ public class ContactPostRequestBody {
 	Long userAddedId;
 	String nickname;
 }
+

@@ -10,3 +10,4 @@ public class ContactPutRequestBody {
 	Long userAddedId;
 	String nickname;
 }
+

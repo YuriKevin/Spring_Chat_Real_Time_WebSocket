@@ -10,3 +10,4 @@ public class UserPutRequestBody {
     String photo;
     String status;
 }
+
