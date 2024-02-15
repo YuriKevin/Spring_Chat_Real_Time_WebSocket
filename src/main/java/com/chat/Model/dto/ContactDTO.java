@@ -19,3 +19,4 @@ public class ContactDTO {
     String photo;
     String status;
 }
+
