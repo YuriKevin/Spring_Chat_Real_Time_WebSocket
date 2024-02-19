@@ -55,13 +55,13 @@ public class ContactService {
 	}
 	
 	@Transactional
-	public void replace(ContactPutRequestBody contactPutRequestBody) {
+	public void replace(ContactDTO contactPutRequestBody) {
 		Contact savedContact = findByIdOrThrowBadRequestException(contactPutRequestBody.getId());
-		User savedUser = userService.findByIdOrThrowBadRequestException(contactPutRequestBody.getUserId());
+		User savedUser = userService.findByIdOrThrowBadRequestException(savedContact.getUserId());
 		Contact contact = Contact.builder()
                 .id(savedContact.getId())
-                .userId(contactPutRequestBody.getUserId())
-                .userAdded(userService.findByIdOrThrowBadRequestException(contactPutRequestBody.getUserAddedId()))
+                .userId(savedUser.getTelephone())
+                .userAdded(userService.findByIdOrThrowBadRequestException(contactPutRequestBody.getTelephone()))
                 .nickname(contactPutRequestBody.getNickname())
                 .build();
         contactRepository.save(contact);
@@ -95,6 +95,19 @@ public class ContactService {
 	
 	public void deleteContactsUser(Long id) {
 		contactRepository.deleteByUserId(id);
+	}
+	
+	public ContactDTO anonymousContact(Long anonymousTelephone) {
+		User user = userService.findByIdOrThrowBadRequestException(anonymousTelephone);
+		ContactDTO contactDTO = ContactDTO.builder()
+				.id(0L)
+				.telephone(user.getTelephone())
+				.nickname(Long.toString(user.getTelephone()))
+				.name(user.getName())
+				.photo(user.getPhoto())
+				.status(user.getStatus())
+				.build();
+		return contactDTO;
 	}
 	
 }
