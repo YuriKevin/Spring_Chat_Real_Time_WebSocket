@@ -18,9 +18,21 @@ public class UserService {
 	private final UserRepository userRepository;
 	private final ContactRepository contactRepository;
 	
-	public User findByIdOrThrowBadRequestException(Long id) {
-        return userRepository.findById(id)
-        		.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário não encontrado Não encontrado"));
+	public User findByIdOrThrowBadRequestException(Long telephone) {
+        return userRepository.findById(telephone)
+        		.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário não encontrado"));
+ 	}
+	public User login(Long telephone, String password) {
+		System.out.println("telephone: "+ telephone+ " senha: "+password);
+        User user = userRepository.findById(telephone)
+        		.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário não encontrado"));
+        
+        if(password.equals(user.getPassword())) {
+        	return user;
+        }
+        else {
+        	throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário ou senha incorretos.");
+        }
  	}
 	
 	@Transactional
