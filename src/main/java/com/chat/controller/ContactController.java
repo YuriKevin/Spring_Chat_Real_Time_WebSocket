@@ -36,6 +36,11 @@ public class ContactController {
         return ResponseEntity.ok(contactService.findUserContacts(id));
     }
 	
+	@GetMapping(path = "anonymous/{id}")
+    public ResponseEntity <ContactDTO> getAnonymousContact(@PathVariable Long id){
+        return ResponseEntity.ok(contactService.anonymousContact(id));
+    }
+	
 	@PostMapping
     public ResponseEntity<ContactDTO> save(@RequestBody @Valid ContactPostRequestBody contactPostRequestBody){
         return new ResponseEntity<>(contactService.save(contactPostRequestBody), HttpStatus.CREATED);
@@ -48,7 +53,7 @@ public class ContactController {
     }
 	
 	@PutMapping
-    public ResponseEntity<Void> replace(@RequestBody ContactPutRequestBody contactPutRequestBody){
+    public ResponseEntity<Void> replace(@RequestBody ContactDTO contactPutRequestBody){
 		contactService.replace(contactPutRequestBody);
     	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
