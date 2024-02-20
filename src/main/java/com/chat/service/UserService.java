@@ -38,7 +38,7 @@ public class UserService {
 	@Transactional
     public User save(UserPostRequestBody userPostRequestBody) {
 		if(userRepository.findByTelephone(userPostRequestBody.getTelephone()) != null) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário com o telfone informado já existe.");
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário com o telefone informado já existe.");
 		}
 		if (check11Digits(userPostRequestBody.getTelephone())) {
 				return userRepository.save(User.builder()
