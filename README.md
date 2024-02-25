@@ -1,8 +1,8 @@
 # Spring Boot Chat em tempo real com WebSocket
 
 ##
-Back-end em Java com o framework Spring Boot de um chat em tempo real utilizando WebSocket. Esta aplicação é complementada por um front-end em Angular que está em outro repositório do perfil:[ https://github.com/YuriKevin/Spring_Chat_WebSocket](https://github.com/YuriKevin/Angular_Chat_Real_Time_WebSocket)https://github.com/YuriKevin/Angular_Chat_Real_Time_WebSocket
-Funcionamento do sistema: https://youtu.be/-J83J0FT1GU
+Back-end em Java com o framework Spring Boot de um chat em tempo real utilizando WebSocket. Esta aplicação é complementada por um front-end em Angular que está em outro repositório do perfil:[ https://github.com/YuriKevin/Spring_Chat_WebSocket](https://github.com/YuriKevin/Angular_Chat_Real_Time_WebSocket)https://github.com/YuriKevin/Angular_Chat_Real_Time_WebSocket  <br>
+Funcionamento do sistema: https://youtu.be/-J83J0FT1GU  <br>
 
 ## O que o back-end traz?
 - É uma API RESTful organizada em camadas: modelo, serviço e controlador;
