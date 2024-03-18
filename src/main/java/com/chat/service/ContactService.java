@@ -67,9 +67,9 @@ public class ContactService {
         contactRepository.save(contact);
     }
 	
-	public List<ContactDTO> findUserContacts(Long id){
+	public List<ContactDTO> findUserContacts(Long telephone){
 		
-		List<Contact> contactList = contactRepository.findByUserId(id);
+		List<Contact> contactList = contactRepository.findByUserId(telephone);
 		if(contactList.isEmpty()) {
 			return null;
 		}
@@ -93,12 +93,12 @@ public class ContactService {
 		
 	}
 	
-	public void deleteContactsUser(Long id) {
-		contactRepository.deleteByUserId(id);
+	public void deleteContactsUser(Long telephone) {
+		contactRepository.deleteByUserId(telephone);
 	}
 	
-	public ContactDTO anonymousContact(Long anonymousTelephone) {
-		User user = userService.findByIdOrThrowBadRequestException(anonymousTelephone);
+	public ContactDTO anonymousContact(Long telephone) {
+		User user = userService.findByIdOrThrowBadRequestException(telephone);
 		ContactDTO contactDTO = ContactDTO.builder()
 				.id(0L)
 				.telephone(user.getTelephone())

@@ -24,8 +24,7 @@ public class UserService {
  	}
 	public User login(Long telephone, String password) {
 		System.out.println("telephone: "+ telephone+ " senha: "+password);
-        User user = userRepository.findById(telephone)
-        		.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário não encontrado"));
+        User user = findByIdOrThrowBadRequestException(telephone);
         
         if(password.equals(user.getPassword())) {
         	return user;
@@ -55,8 +54,8 @@ public class UserService {
         	
     }
 	
-	public static boolean check11Digits(Long numero) {
-        String numeroString = String.valueOf(numero);
+	public static boolean check11Digits(Long telephone) {
+        String numeroString = String.valueOf(telephone);
         return numeroString.length() == 11;
     }
 	
@@ -64,7 +63,6 @@ public class UserService {
 	public void delete(Long id) {
 		userRepository.delete(findByIdOrThrowBadRequestException(id));
 		contactRepository.deleteByUserId(id);
-		//contactRepository delete user number of another phones
 	}
 	
 	@Transactional
