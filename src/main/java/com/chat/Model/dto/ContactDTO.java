@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ContactDTO {
-	Long id;
-	Long telephone;
-	String nickname;
-    String name;
-    String photo;
-    String status;
+	private Long id;
+	private Long telephone;
+	private String nickname;
+	private String name;
+	private String photo;
+	private String status;
 }
 
