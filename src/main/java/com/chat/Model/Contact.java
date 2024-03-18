@@ -21,11 +21,11 @@ import lombok.NoArgsConstructor;
 public class Contact {
 	 	@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 	Long id;
-	 	Long userId;
+	 	private Long id;
+	 	private Long userId;
 		@ManyToOne
 	    @JoinColumn(name = "user_added_id")
-	    User userAdded;
-    	String nickname;
+		private User userAdded;
+		private String nickname;
 }
 

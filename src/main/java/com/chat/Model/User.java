@@ -23,12 +23,12 @@ import lombok.NoArgsConstructor;
 @Entity
 public class User {
 	@Id
-	Long telephone;
-    String name;
-    String password;
+	private Long telephone;
+	private String name;
+	private String password;
     @Lob
     @Column(columnDefinition = "LONGTEXT")
-    String photo;
-    String status;
+    private String photo;
+    private String status;
 }
 

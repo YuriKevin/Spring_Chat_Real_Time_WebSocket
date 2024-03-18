@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Message {
-    String message;
-    Long user; 
+	private String message;
+	private Long user; 
 }
