@@ -66,5 +66,3 @@ public class UserController {
     	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
-
-//throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ID não pode ser nulo");
